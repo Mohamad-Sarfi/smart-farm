@@ -1,15 +1,34 @@
 #side-menu{
-    width: 8%;
-    height: 90vh;
+    width: 6%;
+    height: 88vh;
     border-right: rgb(184, 184, 184) 1.5px solid;
     display: flex;
     flex-direction: column;
-    padding-top: 90px;
+    position:static;
     z-index: -1;
+    background-color: white;
 }
 
 .side-image {
-    width: 30px;
+    width: 27px;
+}
+
+.expanded-info {
+    display: inline;
+    color: white;
+    font-family: "b homa";
+    font-size: 1.3em;
+    padding: 0;
+    margin-left: 15px;
+}
+
+.hide {
+    display: none;
+}
+
+.inline-show{
+    display: inline;
+    padding: 0;
 }
 
 .side-menu-item{
@@ -19,16 +38,31 @@
     text-align: center;
     padding: 23px 0px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
 
-.side-menu-item:hover{
-    background-color: #6be2aa;
+.side-menu-item:hover {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 0;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.expanded {
+    position: relative;
+    left: 0;
+    right: 0;
+    width: 200px;
+
 }
 
 .selected {
     background-color: #6be2aa;
 }
 
-#side-menu-item-user {
+.side-menu-item-user {
     margin-top: auto;
 }
