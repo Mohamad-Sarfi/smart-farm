@@ -4,8 +4,6 @@
     border-right: rgb(184, 184, 184) 1.5px solid;
     display: flex;
     flex-direction: column;
-    position:static;
-    z-index: -1;
     background-color: white;
 }
 
@@ -47,7 +45,6 @@
 .side-menu-item:hover {
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
-    padding: 0;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 

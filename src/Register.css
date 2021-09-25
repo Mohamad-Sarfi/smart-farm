@@ -1,3 +1,49 @@
-#form {
+
+
+#register {
     margin: auto;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 25px;
+    padding-top: 35px;
+}
+
+#form {
+    padding: 60px 90px;
+}
+
+#next-btn {
+    width: 100%;
+    display: block;
+    background-color: #6be2aa;
+    color: white;
+    border-radius: 0px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    font-family: "B homa";
+    font-size: 1.4em;
+}
+
+.form-title{
+    font-family: "b homa";
+    color: #6be2aa;
+}
+
+#form input{
+    font-family: "b homa";
+    font-size: 1.4em;
+    border-color: rgb(231, 231, 231);
+}
+
+#register-img {
+    width: 30%;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 90%;
 }

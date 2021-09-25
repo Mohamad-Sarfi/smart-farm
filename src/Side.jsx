@@ -12,16 +12,21 @@ import buser from "./images/user-black.png";
 import "./Side.css";
 
 class Side extends React.Component {
+  constructor(){
+    super()
 
-  changeImgSrcToSlected(element) {
-      const elementId = element.getAttribute("id");
-      let newSrc;
-      eval("newSrc = " + elementId.toString());
-      console.log(typeof elementId);
-      //element.setAttribute("src", img1);
+    this.mouseIn = this.mouseIn.bind(this);
   }
 
-  addCSSClass = (element, className) => {
+    changeImgSrcToSlected(element) {
+        const elementId = element.getAttribute("id");
+        let newSrc;
+        eval("newSrc = " + elementId.toString());
+        console.log(typeof elementId);
+        //element.setAttribute("src", img1);
+    }
+
+    addCSSClass = (element, className) => {
       element.classList.add(className);
   }
 
@@ -33,7 +38,7 @@ class Side extends React.Component {
     return element.classList.contains("selected");
   }
 
-  mouseIn = (e) => {
+  mouseIn(e) {
     e.stopPropagation();
     console.log(e.target.tagName !== 'img');
     if (!this.checkSelected(e.target) && e.target.tagName !== 'img') {
@@ -57,6 +62,7 @@ class Side extends React.Component {
       //this.changeImgSrcToSlected(img)
     }
   }
+  
 
   render() {
     return (
@@ -66,14 +72,16 @@ class Side extends React.Component {
             className="side-menu-item  selected"
             onMouseEnter={this.mouseIn}
             onMouseLeave={this.mouseOut}
+            
           >
             <img src={homeimg} className="side-image" alt="home" id="home" />
             <h4 className="hide expanded-info"> خانه </h4>
           </div>
           <div
             className="side-menu-item"
-            onMouseEnter={(e) => this.mouseIn(e)}
+            onMouseEnter={this.mouseIn}
             onMouseLeave={(e) => this.mouseOut(e)}
+            onClick={this.mouseIn}
           >
             <img
               src={binsight}
@@ -87,6 +95,7 @@ class Side extends React.Component {
             className="side-menu-item"
             onMouseEnter={this.mouseIn}
             onMouseLeave={this.mouseOut}
+            
           >
             <img
               src={borchard}

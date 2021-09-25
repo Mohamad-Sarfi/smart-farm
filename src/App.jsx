@@ -3,9 +3,16 @@ import logo from "./images/pistachio.png";
 import "./App.css"
 import Side from "./Side";
 import Register from "./Register";
+import RegisterImage from "./RegisterImage";
 
 class App extends React.Component {
+    
+    something = () => {
+
+    }
+    
     render() { 
+
         return (
             <React.Fragment>
                 <header >
@@ -14,10 +21,12 @@ class App extends React.Component {
                         <a id="title" href="/"> کشت پرداز </a>
                     </div>
                 </header>
-                <main id="componentsDiv">
+                
+                <div id="componentsDiv" data-reactroot>
                     <Side />
+                    <RegisterImage />
                     <Register />
-                </main>
+                </div>
                 
             </React.Fragment>
         );
