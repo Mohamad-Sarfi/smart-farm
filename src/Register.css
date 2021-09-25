@@ -33,6 +33,7 @@
     font-family: "b homa";
     font-size: 1.4em;
     border-color: rgb(231, 231, 231);
+    direction: rtl;
 }
 
 #register-img {
@@ -46,4 +47,17 @@
 
 img {
     width: 90%;
+}
+
+.progress-item{
+    height: 5px;
+
+    margin: 1px;
+}
+
+
+
+.progressed {
+    background-color: coral;
+
 }

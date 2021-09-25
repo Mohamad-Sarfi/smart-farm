@@ -74,7 +74,7 @@ class Side extends React.Component {
             onMouseLeave={this.mouseOut}
             
           >
-            <img src={homeimg} className="side-image" alt="home" id="home" />
+            <img src={homeimg} className="side-image" alt="home" id="home" onMouseEnter={e => e.preventDefault()} />
             <h4 className="hide expanded-info"> خانه </h4>
           </div>
           <div
@@ -88,6 +88,7 @@ class Side extends React.Component {
               className="side-image"
               alt="home"
               id="insight"
+              onMouseEnter={e => e.preventDefault()}
             />
             <h4 className="hide expanded-info"> فعالیت ها </h4>
           </div>
