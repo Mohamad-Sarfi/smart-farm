@@ -7,9 +7,7 @@ import RegisterImage from "./RegisterImage";
 
 class App extends React.Component {
     
-    something = () => {
 
-    }
     
     render() { 
 
@@ -24,6 +22,7 @@ class App extends React.Component {
                 
                 <div id="componentsDiv" data-reactroot>
                     <Side />
+                    {console.log(window.innerWidth)}
                     <RegisterImage />
                     <Register />
                 </div>

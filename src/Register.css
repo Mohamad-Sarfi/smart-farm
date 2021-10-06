@@ -1,6 +1,7 @@
 
 
 #register {
+    width: 40%;
     margin: auto;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -12,17 +13,7 @@
     padding: 60px 90px;
 }
 
-#next-btn {
-    width: 100%;
-    display: block;
-    background-color: #6be2aa;
-    color: white;
-    border-radius: 0px;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-    font-family: "B homa";
-    font-size: 1.4em;
-}
+
 
 .form-title{
     font-family: "b homa";
@@ -34,6 +25,7 @@
     font-size: 1.4em;
     border-color: rgb(231, 231, 231);
     direction: rtl;
+    display: block;
 }
 
 #register-img {
@@ -49,15 +41,130 @@ img {
     width: 90%;
 }
 
-.progress-item{
-    height: 5px;
+.progress-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin: 0;
+   
+}
 
+.progress-item{
+    display: inline;
+    height: 5px;
+    width: 24%;
     margin: 1px;
 }
 
-
-
 .progressed {
     background-color: coral;
+}
 
+#btn-div{
+    display: flex;
+    justify-content: space-around;
+    background-color: #6be2aa;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+#next-btn {
+    color: white;
+    border-radius: 0px;
+    font-family: "B homa";
+    font-size: 1.4em;
+}
+
+#finish-btn{
+    color: white;
+    border-radius: 0px;
+    font-family: "B homa";
+    font-size: 1.5em;
+    font-weight: 800;
+}
+
+
+#previous-btn{
+    color: white;
+    border-radius: 0px;
+    font-family: "B homa";
+    font-size: 1.4em;
+}
+
+.register-text{
+    font-size: 1.2em;
+    font-family: "B homa";
+    margin: 10px;
+}
+
+.select-form{
+    display: inline;
+}
+
+#peyvand-select{
+    padding: 4px 12px;
+}
+
+.added-peyvands {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+span:hover{
+    cursor: pointer;
+    background-color: brown;
+}
+
+.location-icon{
+    width: 120px;
+    height: auto;
+    margin-top: 15px;
+}
+
+.unit{
+    display: inline;
+    font-family: "b homa";
+    font-size: 1.2em;
+    border-color: rgb(231, 231, 231);
+    direction: rtl;
+    color: rgb(100, 100, 100);
+
+ 
+}
+
+section {
+    text-align: center;
+}
+
+
+@media  screen and (max-width: 600px) {
+
+    #register-img{
+        display: none;
+    }
+    #register {
+        width: 80%;
+        margin: 30px auto;
+        height: 65vh;
+        text-align: center;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius: 25px;
+        padding-top: 35px;
+        position: relative;
+    }
+    #btn-div{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    #form input {
+        width: 100%;
+    }
+
+    .progress-div {
+        position: absolute;
+        top: 5px;
+    }
 }
