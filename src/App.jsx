@@ -4,6 +4,7 @@ import "./App.css"
 import Side from "./Side";
 import Register from "./Register";
 import RegisterImage from "./RegisterImage";
+import RegisterUser from "./RegisterUser";
 
 class App extends React.Component {
     
@@ -24,7 +25,7 @@ class App extends React.Component {
                     <Side />
                     {console.log(window.innerWidth)}
                     <RegisterImage />
-                    <Register />
+                    <RegisterUser />
                 </div>
                 
             </React.Fragment>

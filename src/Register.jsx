@@ -2,38 +2,42 @@ import React from "react";
 import "./Register.css";
 import locationIcon from "./images/placeholder.png";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import checkedIcon from "./images/checked.png";
 
 class Register extends React.Component {
-  constructor(props){
-      super(props)
-      this.inputRef = React.createRef()
+  constructor(props) {
+    super(props);
+    this.inputRef = React.createRef();
 
-      this.state = {
-        inputValue: {},
-        steps: [],
-        stepNumber: 0,
-        gardenInfo: {
-          name: "",
-          age: 0,
-          peyvands: [],
+    this.state = {
+      steps: [],
+      stepNumber: 0,
+      gardenInfo: {
+        garden_name: "",
+        age: 0,
+        peyvands: [],
+        location: {
+          latitude: 0.0,
+          longitude: 0.0,
+          elevation: "n/a",
         },
-        flag: 0
-      }
+        average_product: 0,
+      },
+      flag: 0,
+    };
   }
 
   nextClick = () => {
-      if (!this.inputValidation()){
-        this.inputRef.current.style.borderColor = 'red';
-      }
-      else {
-        this.incrementStepState();
-      }
-  }
+    if (!this.inputValidation()) {
+      this.inputRef.current.style.borderColor = "red";
+    } else {
+      this.incrementStepState();
+    }
+  };
 
   backClick = () => {
     this.decrementStepState();
-  }
+  };
 
   decrementStepState = () => {
     const newState = this.state.steps;
@@ -41,100 +45,128 @@ class Register extends React.Component {
 
     this.setState({
       steps: newState,
-      stepNumber: this.state.stepNumber - 1
-    })
-  }
+      stepNumber: this.state.stepNumber - 1,
+    });
+  };
 
   incrementStepState = () => {
     const newState = this.state.steps;
     newState.push(0);
-    
+
     this.setState({
       steps: newState,
-      stepNumber: this.state.stepNumber + 1
+      stepNumber: this.state.stepNumber + 1,
     });
-  }
+  };
 
-  handleInputChange = e => {
-
-    console.log(e.target.value);
+  handleNameChange = (e) => {
+    const gardenName = e.target.value;
     this.setState({
-      inputValue: {
-        name: e.target.name,
-        value: e.target.value
-      }
-    })
-  }
+      gardenInfo: {
+        ...this.state.gardenInfo,
+        garden_name: gardenName,
+      },
+    });
+  };
 
-  showBackBtn =() => {
+  handleAgeChange = (e) => {
+    const gardenAge = e.target.value;
+    this.setState({
+      gardenInfo: {
+        ...this.state.gardenInfo,
+        garden_age: gardenAge,
+      },
+    });
+  };
+
+  handleProductChange = (e) => {
+    const averageProduct = e.target.value;
+    this.setState({
+      gardenInfo: {
+        ...this.state.gardenInfo,
+        average_product: averageProduct,
+      },
+    });
+  };
+
+  showBackBtn = () => {
     console.log(`current step is ${this.state.stepNumber}`);
-    if(this.state.stepNumber >= 1){
-      return 'inline';
+    if (this.state.stepNumber >= 1) {
+      return "inline";
+    } else {
+      return "none";
     }
-    else {
-      return 'none';
-    }
-  }
+  };
 
-  peyvandSelect = e => {
+  peyvandSelect = (e) => {
     const peyvand = e.target.value;
     const peyvandList = this.state.gardenInfo.peyvands;
     peyvandList.push(peyvand);
     this.setState({
       gardenInfo: {
         ...this.state.gardenInfo,
-        peyvands: peyvandList
-      }
-    })
-    this.addPeyvand()
-  }
+        peyvands: peyvandList,
+      },
+    });
+    this.addPeyvand();
+  };
 
+  inputValidation = () => (this.state.inputValue === "" ? false : true);
 
-  inputValidation = () => this.state.inputValue === '' ? false : true;
-  
-  peyvandClickHandle= e => {
+  peyvandClickHandle = (e) => {
     const peyvandList = this.state.gardenInfo.peyvands;
     console.log(e.target.innerText);
-    const newPeyvandList = peyvandList.splice(peyvandList.indexOf(e.target.innerText), 1)
+    const newPeyvandList = peyvandList.splice(
+      peyvandList.indexOf(e.target.innerText),
+      1
+    );
     console.log(newPeyvandList.toString());
     this.setState({
-      peyvands: peyvandList
-    })
-  }
+      peyvands: peyvandList,
+    });
+  };
 
-
-  addPeyvand = peyvand => {
+  addPeyvand = (peyvand) => {
     const peyvands = this.state.gardenInfo.peyvands;
-    return peyvands.map((e,i) => {
-        return <span className="badge bg-primary m-1 p-2" key={i} onClick={this.peyvandClickHandle}>{e}</span>
-    })
-  }
+    return peyvands.map((e, i) => {
+      return (
+        <span
+          className="badge bg-primary m-1 p-2"
+          key={i}
+          onClick={this.peyvandClickHandle}
+        >
+          {e}
+        </span>
+      );
+    });
+  };
 
-  finish = e => {
+  finish = (e) => {
     this.setState({
-      flag: 1
-    })
-    
-  }
-  
+      flag: 1,
+    });
+
+  };
 
   render() {
     return (
       <React.Fragment>
-        <div id="register">
+        { this.state.flag===0 && (<div id="register">
           <h4 className="form-title">ثبت باغ جدید</h4>
           <div id="form">
-            { this.state.stepNumber === 0 && (<section>
-              <input
-                type="text"
-                name="gardenName"
-                placeholder="نام باغ"
-                className="form-control"
-                ref={this.inputRef}
-                onChange={this.handleInputChange}
-                required
-              />
-            </section>)}
+            {this.state.stepNumber === 0 && (
+              <section>
+                <input
+                  type="text"
+                  name="gardenName"
+                  placeholder="نام باغ"
+                  className="form-control"
+                  ref={this.inputRef}
+                  onChange={this.handleNameChange}
+                  required
+                />
+              </section>
+            )}
             {this.state.stepNumber === 1 && (
               <section>
                 <input
@@ -143,18 +175,16 @@ class Register extends React.Component {
                   placeholder="سن تقریبی باغ"
                   className="form-control"
                   ref={this.inputRef}
-                  onChange={this.handleInputChange}
+                  onChange={this.handleAgeChange}
                 />
-              </section> 
-            )
-            }
+              </section>
+            )}
 
-            {
-              this.state.stepNumber === 2 && (
-                <section className="peyvand" >
-                <select 
-                  name="peyvand" 
-                  id="peyvand-select" 
+            {this.state.stepNumber === 2 && (
+              <section className="peyvand">
+                <select
+                  name="peyvand"
+                  id="peyvand-select"
                   onChange={this.peyvandSelect}
                   className="register-text select-form"
                 >
@@ -164,64 +194,73 @@ class Register extends React.Component {
                   <option>اوحدی</option>
                   <option>خنجری</option>
                 </select>
-                <label for="peyvand-select" className="register-text">پیوندهای باغ</label>
-                <div className="added-peyvands">
-                  {this.addPeyvand()}
-                </div>
+                <label for="peyvand-select" className="register-text">
+                  پیوندهای باغ
+                </label>
+                <div className="added-peyvands">{this.addPeyvand()}</div>
               </section>
-              )
-            }
-            {
-              this.state.stepNumber === 3 && (
-                <section>
-                    <h3 className="unit">موقعیت مکانی باغ را مشخص کنید</h3>
-                    <img src={locationIcon} alt="Location icon" className="location-icon" />
-                </section>
-              )
-            }
+            )}
+            {this.state.stepNumber === 3 && (
+              <section>
+                <h3 className="unit">موقعیت مکانی باغ را مشخص کنید</h3>
+                <img
+                  src={locationIcon}
+                  alt="Location icon"
+                  className="location-icon"
+                />
+              </section>
+            )}
 
-            {
-              this.state.stepNumber === 4 && (
-                <section>
-                  <input
-                    type="number"
-                    name="averageProduct"
-                    placeholder="میانگین محصولات باغ در چند سال اخیر"
-                    className="form-control"
-                    min="0"
-                  />
-                  <h3 className="unit">1000 کیلو</h3>
-                </section>
-              )
-            }
-            
+            {this.state.stepNumber === 4 && (
+              <section>
+                <input
+                  type="number"
+                  name="averageProduct"
+                  placeholder="میانگین محصولات باغ در چند سال اخیر"
+                  className="form-control"
+                  min="0"
+                  onChange={this.handleProductChange}
+                />
+                <h3 className="unit">1000 کیلو</h3>
+              </section>
+            )}
           </div>
           <div className="progress-div">
-              {this.state.steps.map((e,i) => {
-                return <div className="progress-item progressed" key={i}></div>;
-              })}
+            {this.state.steps.map((e, i) => {
+              return <div className="progress-item progressed" key={i}></div>;
+            })}
           </div>
           <div id="btn-div">
-            <button className="btn" id="previous-btn" onClick={this.backClick} style={{display: this.showBackBtn()}}>
+            <button
+              className="btn"
+              id="previous-btn"
+              onClick={this.backClick}
+              style={{ display: this.showBackBtn() }}
+            >
               قبلی
             </button>
-            {
-              this.state.stepNumber < 4 && (
-                <button className="btn " id="next-btn" onClick={this.nextClick}>
+            {this.state.stepNumber < 4 && (
+              <button className="btn " id="next-btn" onClick={this.nextClick}>
                 بعدی
-                </button>
-              )
-            }
-            {
-              this.state.stepNumber === 4 && (
-                <button className="btn " id="finish-btn" onClick={this.finish}>
-                  ثبت
-                </button>
-              )
-            }
+              </button>
+            )}
+            {this.state.stepNumber === 4 && (
+              <button className="btn " id="finish-btn" onClick={this.finish}>
+                ثبت
+              </button>
+            )}
           </div>
-          
-        </div>
+        </div>)}
+        {
+          this.state.flag === 1 && (
+            <div className="box-container">
+              <h3 className="finish-text">
+                ثبت نام با موفقیت انجام شد
+              </h3>
+              <img src={checkedIcon} alt="Successfully registered" className="location-icon" id="finish-icon" />
+            </div>
+          )
+        }
       </React.Fragment>
     );
   }

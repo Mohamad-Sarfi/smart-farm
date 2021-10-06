@@ -9,8 +9,30 @@
     padding-top: 35px;
 }
 
+.box-container {
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 25px;
+    padding-top: 35px;
+    background-color: white;
+    padding: 50px;
+}
+
+.finish-text{
+    font-family: "b homa";
+    margin: 20px;
+}
+
+#finish-icon {
+    cursor: pointer;
+    
+}
+
 #form {
-    padding: 60px 90px;
+    padding: 20px 90px;
+    padding-bottom: 50px;
 }
 
 
@@ -46,7 +68,7 @@ img {
     flex-direction: row;
     justify-content: left;
     margin: 0;
-   
+    padding: 1px;
 }
 
 .progress-item{
@@ -101,6 +123,15 @@ img {
     display: inline;
 }
 
+#monthSelect {
+    font-size: 1.4em;
+    font-family: "b homa";
+    border-color: rgb(231, 231, 231);
+    direction: rtl;
+    display: block;
+    padding: 5px;
+}
+
 #peyvand-select{
     padding: 4px 12px;
 }
@@ -111,13 +142,10 @@ img {
     flex-wrap: wrap;
 }
 
-span:hover{
-    cursor: pointer;
-    background-color: brown;
-}
+
 
 .location-icon{
-    width: 120px;
+    width: 100px;
     height: auto;
     margin-top: 15px;
 }
@@ -135,7 +163,23 @@ span:hover{
 
 section {
     text-align: center;
+    
 }
+
+
+
+.small-icon {
+    width: 50px;
+    margin: 15px;
+}
+
+.medium-title-text{
+    color: #6be2aa;
+    font-family: "b homa";
+    font-size: 1.4em;
+}
+
+
 
 
 @media  screen and (max-width: 600px) {
@@ -163,8 +207,18 @@ section {
         width: 100%;
     }
 
+    .wrong-input{
+        border: tomato 1px solid;
+        background-color: tomato;
+    }
+
     .progress-div {
         position: absolute;
         top: 5px;
+    }
+
+    #form {
+        padding: 40px 90px;
+
     }
 }
