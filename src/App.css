@@ -1,5 +1,15 @@
 header {
-    z-index: 10;
+    z-index: 2;
+    background-color: white;
+    position:fixed;
+    width: 100%;
+}
+
+a {
+    font-style: normal;
+    text-decoration: none;
+    color: black;
+    
 }
 
 #my-header {
@@ -8,7 +18,7 @@ header {
     border-bottom: rgb(212, 212, 212) 1.5px solid;
     margin: 0px;
     align-items: center;
-    position:fixed;
+ 
     width: 100%;
     height: 12vh;
     background-color: white;
@@ -44,8 +54,38 @@ main {
     padding-top: 12vh;
 }
 
+#sign-in-up {
+    margin-left: auto;
+}
+
+.black-text {
+    font-size: 1.2em;
+    font-family: "b homa";
+}
+
+.small-icon-black {
+    width: 40px;
+    margin: 15px;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 600px) {
     RegisterImage {
         display: none;
+    }
+
+    #logo {
+        width: 35px;
+        margin: 10px
+    }
+    
+    #title{
+        font-size: 1.2em;
+    }
+
+    .small-icon-black {
+        width: 35px;
+        margin: 10px;
+        cursor: pointer;
     }
 }

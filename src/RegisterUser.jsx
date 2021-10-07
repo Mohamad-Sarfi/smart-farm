@@ -81,6 +81,13 @@ class RegisterUser extends React.Component {
         )
     }
 
+    handleyearChange = e => {
+        if (parseInt(e.target.value, 10) < 1300 || parseInt(e.target.value, 10) > 1450){
+            
+        }
+
+    }
+
     render() { 
         return (
             <React.Fragment>
@@ -181,7 +188,7 @@ class RegisterUser extends React.Component {
                                                 placeholder="سال تولد"
                                                 className="form-control m-1"
                                                 ref={this.inputRef}
-                                                onChange={this.handleNameChange}
+                                                onChange={this.handleyearChange}
                                                 min="1300"
                                                 max="1450"
                                             />
