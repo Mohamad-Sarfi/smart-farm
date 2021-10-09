@@ -1,6 +1,7 @@
 import React from "react";
 import "./HomeStyle.css";
 import AIIcon from "../images/ai.png"
+import smartIcon from "../images/ai-farm.jpg"
 
 class Home extends React.Component {
 
@@ -27,6 +28,13 @@ class Home extends React.Component {
                             <h4 className="my-text"> حفظ منابع </h4>
                         </div>
                     </div>
+
+                    <div id="description">
+                        <h4 className="my-text">
+                            هوش مصنوعی
+                        </h4>
+                    </div>
+                    
                 </div>
 
                 

@@ -15,7 +15,8 @@ a {
 #my-header {
     display: flex;
     flex-wrap: nowrap;
-    border-bottom: rgb(212, 212, 212) 1.5px solid;
+    
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
     margin: 0px;
     align-items: center;
  
@@ -25,7 +26,7 @@ a {
 }
 
 #logo {
-    width: 50px;
+    width: 37px;
     margin: 15px 20px;
 }
 
@@ -34,7 +35,7 @@ a {
     text-decoration: none;
     color: rgb(46, 46, 46);
     font-weight:550;
-    font-size: 1.6em;
+    font-size: 1.4em;
     margin: 15px 20px;
     font-family: 'B farnaz';
     text-align: center;
@@ -59,12 +60,15 @@ main {
 }
 
 .black-text {
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-family: "b homa";
+    font-style: normal;
+    text-decoration: none;
+    color: black;
 }
 
 .small-icon-black {
-    width: 40px;
+    width: 28px;
     margin: 15px;
     cursor: pointer;
 }

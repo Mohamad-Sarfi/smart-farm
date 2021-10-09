@@ -33,15 +33,14 @@ class App extends React.Component {
                         <a id="title" href="/"> کشت پرداز </a>
                         
                          <div id="sign-in-up">
-                            <a href="/sign-in-up"><span className="black-text">وارد شوید</span></a>
+                            <a href="/sign-in-up" className="black-text"><span className="black-text">وارد شوید</span></a>
                             <img src={addUserIcon} alt="add user" className="small-icon-black" />
                         </div>
-                        
                     </div>
                 </header>
-                
+                <Side style={{position: "fixed"}} />
                 <div id="componentsDiv" data-reactroot>
-                    <Side style={{position: "fixed"}} />
+                    
                     <Router>
                         <Switch>
                             <Route path="/" exact component={Home}/>

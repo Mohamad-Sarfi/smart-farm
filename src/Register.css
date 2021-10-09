@@ -1,4 +1,12 @@
-
+#main-register{
+    width: 94vw;
+    display: flex;
+    position: relative;
+    left: 6vw;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 88vh;
+}
 
 #register {
     width: 40%;
