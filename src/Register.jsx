@@ -3,6 +3,7 @@ import "./Register.css";
 import locationIcon from "./images/placeholder.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import checkedIcon from "./images/checked.png";
+import RegisterImage from "./RegisterImage";
 
 class Register extends React.Component {
   constructor(props) {
@@ -151,106 +152,111 @@ class Register extends React.Component {
   render() {
     return (
       <React.Fragment>
-        { this.state.flag===0 && (<div id="register">
-          <h4 className="form-title">ثبت باغ جدید</h4>
-          <div id="form">
-            {this.state.stepNumber === 0 && (
-              <section>
-                <input
-                  type="text"
-                  name="gardenName"
-                  placeholder="نام باغ"
-                  className="form-control"
-                  ref={this.inputRef}
-                  onChange={this.handleNameChange}
-                  required
-                />
-              </section>
-            )}
-            {this.state.stepNumber === 1 && (
-              <section>
-                <input
-                  type="number"
-                  name="gardenAge"
-                  placeholder="سن تقریبی باغ"
-                  className="form-control"
-                  ref={this.inputRef}
-                  onChange={this.handleAgeChange}
-                />
-              </section>
-            )}
+        { this.state.flag===0 && (
+        <div id="main-register">
+            <RegisterImage />
+            <div id="register">  
+            <h4 className="form-title">ثبت باغ جدید</h4>
+            <div id="form">
+              {this.state.stepNumber === 0 && (
+                <section>
+                  <input
+                    type="text"
+                    name="gardenName"
+                    placeholder="نام باغ"
+                    className="form-control"
+                    ref={this.inputRef}
+                    onChange={this.handleNameChange}
+                    required
+                  />
+                </section>
+              )}
+              {this.state.stepNumber === 1 && (
+                <section>
+                  <input
+                    type="number"
+                    name="gardenAge"
+                    placeholder="سن تقریبی باغ"
+                    className="form-control"
+                    ref={this.inputRef}
+                    onChange={this.handleAgeChange}
+                  />
+                </section>
+              )}
 
-            {this.state.stepNumber === 2 && (
-              <section className="peyvand">
-                <select
-                  name="peyvand"
-                  id="peyvand-select"
-                  onChange={this.peyvandSelect}
-                  className="register-text select-form"
-                >
-                  <option>اکبری</option>
-                  <option>احمد آقایی</option>
-                  <option>شاهپسند</option>
-                  <option>اوحدی</option>
-                  <option>خنجری</option>
-                </select>
-                <label for="peyvand-select" className="register-text">
-                  پیوندهای باغ
-                </label>
-                <div className="added-peyvands">{this.addPeyvand()}</div>
-              </section>
-            )}
-            {this.state.stepNumber === 3 && (
-              <section>
-                <h3 className="unit">موقعیت مکانی باغ را مشخص کنید</h3>
-                <img
-                  src={locationIcon}
-                  alt="Location icon"
-                  className="location-icon"
-                />
-              </section>
-            )}
+              {this.state.stepNumber === 2 && (
+                <section className="peyvand">
+                  <select
+                    name="peyvand"
+                    id="peyvand-select"
+                    onChange={this.peyvandSelect}
+                    className="register-text select-form"
+                  >
+                    <option>اکبری</option>
+                    <option>احمد آقایی</option>
+                    <option>شاهپسند</option>
+                    <option>اوحدی</option>
+                    <option>خنجری</option>
+                  </select>
+                  <label for="peyvand-select" className="register-text">
+                    پیوندهای باغ
+                  </label>
+                  <div className="added-peyvands">{this.addPeyvand()}</div>
+                </section>
+              )}
+              {this.state.stepNumber === 3 && (
+                <section>
+                  <h3 className="unit">موقعیت مکانی باغ را مشخص کنید</h3>
+                  <img
+                    src={locationIcon}
+                    alt="Location icon"
+                    className="location-icon"
+                  />
+                </section>
+              )}
 
-            {this.state.stepNumber === 4 && (
-              <section>
-                <input
-                  type="number"
-                  name="averageProduct"
-                  placeholder="میانگین محصولات باغ در چند سال اخیر"
-                  className="form-control"
-                  min="0"
-                  onChange={this.handleProductChange}
-                />
-                <h3 className="unit">1000 کیلو</h3>
-              </section>
-            )}
-          </div>
-          <div className="progress-div">
-            {this.state.steps.map((e, i) => {
-              return <div className="progress-item progressed" key={i}></div>;
-            })}
-          </div>
-          <div id="btn-div">
-            <button
-              className="btn"
-              id="previous-btn"
-              onClick={this.backClick}
-              style={{ display: this.showBackBtn() }}
-            >
-              قبلی
-            </button>
-            {this.state.stepNumber < 4 && (
-              <button className="btn " id="next-btn" onClick={this.nextClick}>
-                بعدی
+              {this.state.stepNumber === 4 && (
+                <section>
+                  <input
+                    type="number"
+                    name="averageProduct"
+                    placeholder="میانگین محصولات باغ در چند سال اخیر"
+                    className="form-control"
+                    min="0"
+                    onChange={this.handleProductChange}
+                  />
+                  <h3 className="unit">1000 کیلو</h3>
+                </section>
+              )}
+            </div>
+            <div className="progress-div">
+              {this.state.steps.map((e, i) => {
+                return <div className="progress-item progressed" key={i}></div>;
+              })}
+            </div>
+            <div id="btn-div">
+              <button
+                className="btn"
+                id="previous-btn"
+                onClick={this.backClick}
+                style={{ display: this.showBackBtn() }}
+              >
+                قبلی
               </button>
-            )}
-            {this.state.stepNumber === 4 && (
-              <button className="btn " id="finish-btn" onClick={this.finish}>
-                ثبت
-              </button>
-            )}
-          </div>
-        </div>)}
+              {this.state.stepNumber < 4 && (
+                <button className="btn " id="next-btn" onClick={this.nextClick}>
+                  بعدی
+                </button>
+              )}
+              {this.state.stepNumber === 4 && (
+                <button className="btn " id="finish-btn" onClick={this.finish}>
+                  ثبت
+                </button>
+              )}
+            </div>
+        </div>
+        </div>)
+        }
         {
           this.state.flag === 1 && (
             <div className="box-container">

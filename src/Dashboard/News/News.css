@@ -1,0 +1,12 @@
+.main-news {
+    width: 66%;
+    position: relative;
+    left: 33%;
+}
+
+.cover-slide {
+    background-size: cover;
+    width: 100%;
+    overflow: auto;
+}
+

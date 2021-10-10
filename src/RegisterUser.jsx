@@ -35,8 +35,9 @@ class RegisterUser extends React.Component {
         })
     }
     backClick = () => {
+        const newStep = this.state.stepNumber > 0 ? this.state.stepNumber - 1 : 0;
         this.setState({
-            stepNumber: this.state.stepNumber - 1
+            stepNumber: newStep
         })
     }
 
@@ -256,7 +257,7 @@ class RegisterUser extends React.Component {
                                 <h3 className="finish-text">
                                     ثبت نام با موفقیت انجام شد
                                 </h3>
-                                <img src={checkedIcon} alt="Successfully registered" className="location-icon" id="finish-icon" />
+                                <img src={checkedIcon} alt="Successfully registered" className="location-icon" id="finish-icon" onClick={this.props.authenticate}/>
                             </Link>
                             
                         </div>

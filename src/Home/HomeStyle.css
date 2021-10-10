@@ -13,7 +13,7 @@
 
 .header{
     width: 100%;
-    padding: 30px;
+    padding: 20px 0px;
 }
 
 section {
@@ -62,6 +62,7 @@ section {
 
 .card:hover {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
 }
 
 .medium-icon{
@@ -82,3 +83,5 @@ section {
     height: 400px;
 
 }
+
+

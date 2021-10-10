@@ -30,9 +30,12 @@ class Home extends React.Component {
                     </div>
 
                     <div id="description">
-                        <h4 className="my-text">
-                            هوش مصنوعی
-                        </h4>
+                        <section id="AI"> 
+                            <h4 className="my-text">
+                                هوش مصنوعی
+                            </h4>
+                        </section>
+                        
                     </div>
                     
                 </div>
